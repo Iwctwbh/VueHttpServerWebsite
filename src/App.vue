@@ -1,17 +1,9 @@
 <template>
-    <Login></Login>
+    <LoginView></LoginView>
 </template>
 
-<script lang="ts">
-    import { defineComponent } from 'vue';
-    import Login from './components/Login.vue'
-
-    export default defineComponent({
-        name: 'App',
-        components: {
-            Login
-        }
-    });
+<script lang="ts" setup>
+    import LoginView from './components/LoginView.vue'
 </script>
 
 <style>
