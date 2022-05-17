@@ -6,19 +6,25 @@
                 <el-form-item label="UserName">
                     <el-input v-model="form.username" />
                 </el-form-item>
+
                 <el-form-item label="Password">
                     <el-input v-model="form.password" />
                 </el-form-item>
-                <el-col :span="12">
-                    <el-form-item label="IP">
-                        <el-input v-model="form.ipaddress" />
-                    </el-form-item>
-                </el-col>
-                <el-col :span="12">
-                    <el-form-item label="Port">
-                        <el-input v-model="form.port" />
-                    </el-form-item>
-                </el-col>
+
+                <el-form-item label="IP">
+                    <el-col :span="12">
+                            <el-input v-model="form.ipaddress" />
+                    </el-col>
+                    <el-col :span="12">
+                        <el-form-item label="Port">
+                            <el-input v-model="form.port" />
+                        </el-form-item>
+                    </el-col>
+                </el-form-item>
+
+                <el-form-item>
+                    <el-button type="primary" @click="submitForm(ruleFormRef)" style="flex: 1">Login</el-button>
+                </el-form-item>
             </el-form>
         </div>
     </div>
