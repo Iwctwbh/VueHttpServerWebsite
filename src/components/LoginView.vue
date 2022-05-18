@@ -4,16 +4,16 @@
         <div style="max-width: 90%; width: 500px">
             <el-form id="formLogin" :model="form" label-width="120px">
                 <el-form-item label="UserName">
-                    <el-input v-model="form.username" />
+                    <el-input placeholder="Please input username" v-model="form.username" />
                 </el-form-item>
 
                 <el-form-item label="Password">
-                    <el-input v-model="form.password" />
+                    <el-input type="password" placeholder="Please input password" v-model="form.password" />
                 </el-form-item>
 
                 <el-form-item label="IP">
                     <el-col :span="12">
-                            <el-input v-model="form.ipaddress" />
+                        <el-input v-model="form.ipaddress" />
                     </el-col>
                     <el-col :span="12">
                         <el-form-item label="Port">
@@ -40,6 +40,26 @@
         port: '',
         ipaddress: ''
     })
+
+    const submitForm = () => {
+        console.log("2333")
+        fetch('http://127.0.0.1:18080/vueWebServer',
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    'UserName': form.username,
+
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    response.json();
+                }
+                throw new Error('Ê§°Ü')
+            }).then(data => console.log(data))
+    }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
