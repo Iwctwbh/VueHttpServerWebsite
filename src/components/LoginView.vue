@@ -42,23 +42,29 @@
     })
 
     const submitForm = () => {
-        console.log("2333")
-        fetch('http://127.0.0.1:3333/vueWebServer',
+        let s_Url = 'http://' + form.ipaddress + ':' + form.port + '/vueWebServer'
+        fetch(s_Url,
             {
                 method: 'POST',
                 body: JSON.stringify({
                     'UserName': form.username,
-
+                    'Password': form.password,
+                    'IPAddress': form.ipaddress,
+                    'Port': form.port
                 }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             }).then(response => {
                 if (response.ok) {
-                    response.json();
+                    return response.json();
+                } else {
+                    throw new Error('Failed')
                 }
-                throw new Error('Ê§°Ü')
             }).then(data => console.log(data))
+        if (res.ok) {
+            console.log("2333")
+        }
     }
 </script>
 

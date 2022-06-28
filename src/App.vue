@@ -1,9 +1,12 @@
 <template>
-    <LoginView></LoginView>
+    <div id="app">
+        <router-link to="/Login"></router-link>
+        <router-link to="/Login"></router-link>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script lang="ts" setup>
-    import LoginView from './components/LoginView.vue'
 </script>
 
 <style>
