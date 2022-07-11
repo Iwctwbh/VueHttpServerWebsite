@@ -3,18 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --mode devlopment",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@microsoft/signalr": "^6.0.6",
+    "@microsoft/signalr-protocol-msgpack": "^6.0.6",
     "@vue/test-utils": "^2.0.0",
     "core-js": "^3.8.3",
     "element-plus": "^2.2.0",
+    "hash.js": "^1.1.7",
     "jest": "^28.1.0",
     "jest-editor-support": "^30.0.2",
     "localforage": "^1.10.0",
     "lodash-es": "^4.17.21",
+    "pinia": "^2.0.14",
     "util": "^0.12.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.15"

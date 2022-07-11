@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/Login',
         name: 'Login',
         meta: { requiresAuth: false },
-        component: () => import('../components/LoginView.vue')
+        component: () => import('../views/LoginView.vue')
     },
     {
         path: '/404',
