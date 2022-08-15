@@ -1,66 +1,37 @@
-import { createRouter, createWebHistory, HistoryState, RouteRecordRaw } from 'vue-router'
+import { route } from 'quasar/wrappers';
+import {
+  createMemoryHistory,
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+} from 'vue-router';
+import routes from './routes';
 
-const routes: Array<RouteRecordRaw> = [
-    {
-        path: '/',
-        name: 'Home',
-        meta: { requiresAuth: false },
-        redirect: { name: 'Home' }
-    },
-    {
-        path: '/Login',
-        name: 'Login',
-        meta: { requiresAuth: false },
-        component: () => import('../views/LoginView.vue')
-    },
-    {
-        path: '/404',
-        name: '404',
-        meta: { requiresAuth: false },
-        component: () => import('../views/NotFound.vue')
-    }
-]
+/*
+ * If not building with SSR mode, you can
+ * directly export the Router instantiation;
+ *
+ * The function below can be async too; either use
+ * async/await or return a Promise which resolves
+ * with the Router instance.
+ */
 
-export const keys = []
-const history = createWebHistory(process.env.BASE_URL)
+export default route(function (/* { store, ssrContext } */) {
+  const createHistory = process.env.SERVER
+    ? createMemoryHistory
+    : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory);
 
-const _push = history.push
-const _replace = history.replace
-//const setKey = (to: string, data: HistoryState | undefined) => {
-//    if (!data) data = {}
-//    data['key'] = `[${to}] ${nanoid()}`
-//    keys.push(data['key'])
-//    return data
-//}
-//history.push = (to, data) => {
-//    data = setKey(to, data)
-//    _push(to, data)
-//}
-//history.replace = (to, data) => {
-//    data = setKey(to, data)
-//    _replace(to, data)
-//}
-
-const router = createRouter({
-    history: history,
+  const Router = createRouter({
+    scrollBehavior: () => ({ left: 0, top: 0 }),
     routes,
-    scrollBehavior(to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            return { top: 0 }
-        }
-    }
-})
 
-//router.beforeEach(async function (to) {
-//    if (to.params.authRedirect) {
-//        Notify.create({
-//            type: 'negative',
-//            timeout: 1500,
-//            position: 'bottom',
-//            message: '此操作必须登录，正在前往登录页面'
-//        })
-//    }
+    // Leave this as is and make changes in quasar.conf.js instead!
+    // quasar.conf.js -> build -> vueRouterMode
+    // quasar.conf.js -> build -> publicPath
+    history: createHistory(
+      process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE
+    ),
+  });
 
-export default router
+  return Router;
+});

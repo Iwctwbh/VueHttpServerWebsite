@@ -27,17 +27,16 @@ const HOST = VUE_APP_API_SERVER
  *    但是现在项目还不大，不拆的话简化编辑也是个不错的选择
  */
 export const PATH = {
-    /** ----- user ----- */
-    //USER_LOGIN: `${HOST}/api/user/login`,
-    USER_LOGIN: `http://127.0.0.1:18080/vueWebServer`,
-    USER_REFRESH_TOKEN: `${HOST}/api/user/refresh_token`,
-    USER_SEND_RESET_EMAIL: `${HOST}/api/user/send_reset_email`,
-    USER_SEND_REGISTER_EMAIL: `${HOST}/api/user/send_register_email`,
-    USER_RESET_PASSWORD: `${HOST}/api/user/reset_password`,
-    USER_REGISTER: `${HOST}/api/user/register`,
-    USER_UPLOAD_BOOK: `${HOST}/api/user/upload_book`
-    /** ----- end user ----- */
+  /** ----- user ----- */
+  USER_LOGIN: `${HOST}/api/user/login`,
+  USER_REFRESH_TOKEN: `${HOST}/api/user/refresh_token`,
+  USER_SEND_RESET_EMAIL: `${HOST}/api/user/send_reset_email`,
+  USER_SEND_REGISTER_EMAIL: `${HOST}/api/user/send_register_email`,
+  USER_RESET_PASSWORD: `${HOST}/api/user/reset_password`,
+  USER_REGISTER: `${HOST}/api/user/register`,
+  USER_UPLOAD_BOOK: `${HOST}/api/user/upload_book`
+  /** ----- end user ----- */
 
-    /** ----- book ----- */
-    /** ----- end book ----- */
+  /** ----- book ----- */
+  /** ----- end book ----- */
 }

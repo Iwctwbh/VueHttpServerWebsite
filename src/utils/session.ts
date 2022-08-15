@@ -1,5 +1,5 @@
-import { NOOP } from '@/const/empty'
-import { userAuthenticationDB } from '@/utils/storage/db'
+import { NOOP } from 'src/const/empty'
+import { userAuthenticationDB } from 'src/utils/storage/db'
 
 class TokenStorage {
   private readonly INIT_SOURCE = ''
@@ -23,7 +23,7 @@ class TokenStorage {
 }
 
 /** 会话密钥 */
-export const sessionToken = new TokenStorage(+process.env.VUE_APP_SESSION_TOKEN_VALIDITY || 3000)
+export const sessionToken = new TokenStorage(+VUE_SESSION_TOKEN_VALIDITY || 3000)
 
 /** 长期密钥 */
 export const longTermToken = {
