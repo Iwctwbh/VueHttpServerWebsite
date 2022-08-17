@@ -1,5 +1,5 @@
 <template>
-  <div class="divLogin" style="display: flex; flex-direction: column; align-items: center; background-color: #cce8cf">
+  <div class="divLogin" style="display: flex; flex-direction: column; align-items: center; background-color: #cce8cf; height: 100%;">
     <h1>Login</h1>
     <div style="max-width: 90%; width: 500px">
       <q-form id="formLogin" :model="form">

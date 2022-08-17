@@ -39,7 +39,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container style="height: 100%; position: absolute; width: 100%; ">
       <router-view />
     </q-page-container>
   </q-layout>
